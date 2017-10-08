@@ -172,6 +172,7 @@ document.onclick = function () {
         }
       }
     }
+    result = '=' + result; 
     if (fSize = 1) {
       result = result.slice(0,16);
     }
@@ -181,6 +182,6 @@ document.onclick = function () {
     if (fSize = 3) {
       result = result.slice(0,20);
     }
-    displayResult.innerHTML = '=' + result;  
+    displayResult.innerHTML = result;  
   }
 }
