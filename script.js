@@ -25,13 +25,14 @@ document.onclick = function () {
       }
     } else if (val === 'clear') {
       text = '';
+      displayResult.innerHTML = '';
     } else if (['+','-','*','/'].indexOf(val) > -1 && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
     } else if (val === '.' && lastCharacter(1) === '%') {
       for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
       qw = text.lastIndexOf('.');
-      if (qw >= cv && dot === false) {
+      if ((qw >= cv && dot === false) || qw === -1) {
         dot = true;
         text = text + '*0' + val;
       }
@@ -43,11 +44,16 @@ document.onclick = function () {
         text = text.slice(0, -1);
       }
     } else if (['+','-','*','/','%'].indexOf(lastCharacter(1)) > -1 && val === lastCharacter(1)) {
-    } else if (val !== '=' && val !== '.') {
+    } else if (val !== '=' && val !== '.' && theButton.className !== 'numbers') {
       text += val;
     }
     if (theButton.className == 'numbers') {
       if (val !== '.') {
+        if (lastCharacter(1) === '%') {
+          text = text + '*' + val;
+        } else {
+          text += val;
+        }
         for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g,'');
         console.log(text);
