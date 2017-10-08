@@ -52,6 +52,7 @@ document.onclick = function () {
         dot = true;
         text = text + '	\u00D7' + '0' + val;
       }
+    } else if (val === '%' && text.length === 0) {
     } else if (val === '%' && ['+','-','\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
       if (!lastCharacter(2) === '%') {
         text = text.slice(0, -1);
@@ -156,7 +157,30 @@ document.onclick = function () {
         console.log(text);
       }
     }
-    result = parseFloat(eval(text).toFixed(2));
+    result = eval(text).toString();
+    if (result.indexOf('.') > 0) {
+      let i
+      for (i = result.length - 1; result.charAt(i) !== '.'; i--) {}
+
+      var zx = 0;
+      for (let qw = i - 1; qw > 0; qw--) {
+        zx++;
+        zx = zx % 3;
+        if (zx === 0) {
+          result = result.slice(0, qw) + "," + result.slice(qw);
+          console.log('-> ' + result);
+        }
+      }
+    }
+    if (fSize = 1) {
+      result = result.slice(0,16);
+    }
+    if (fSize = 2) {
+      result = result.slice(0,17);
+    }
+    if (fSize = 3) {
+      result = result.slice(0,20);
+    }
     displayResult.innerHTML = '=' + result;  
   }
 }
