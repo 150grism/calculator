@@ -9,6 +9,7 @@ var text = '';
 var fSize = 0;
 var dot = false;
 var lastCharacter = (index) => text.charAt(text.length - index);
+var cv, qw;
 
 document.onclick = function () {
 
@@ -16,7 +17,6 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
-    
     if (val === 'backspace') {
       if (lastCharacter(2) === ',') {
         text = text.slice(0, -2);
@@ -29,7 +29,12 @@ document.onclick = function () {
       text = text.slice(0, -1);
       text += val;
     } else if (val === '.' && lastCharacter(1) === '%') {
-      text = text + '*0' + val;
+      for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+      qw = text.lastIndexOf('.');
+      if (qw >= cv && dot === false) {
+        dot = true;
+        text = text + '*0' + val;
+      }
     } else if (val === '%' && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
       if (!lastCharacter(2) === '%') {
         text = text.slice(0, -1);
@@ -43,7 +48,6 @@ document.onclick = function () {
     }
     if (theButton.className == 'numbers') {
       if (val !== '.') {
-        var cv, qw;
         for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g,'');
         console.log(text);
@@ -66,6 +70,7 @@ document.onclick = function () {
       } else {
         if (dot === false) {
           text += val;
+          dot = true;
         }
       }
     }
