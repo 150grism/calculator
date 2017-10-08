@@ -224,6 +224,32 @@ button {
   }
 }
 
+#top-nav-bar {
+  position:absolute;
+  left: -4%;
+  height: 23.75px;
+  width: 108%;
+  display: float;
+  & img {
+    float: right;
+    height: 60%;
+    margin: 1.5% 0 0 1%;
+  }
+  & #alarm {
+    margin-top: 1%;
+    height:70%;
+  }
+  & p {
+    font-size: 0.7em;
+    font-weight: 500;
+    float: right;
+    margin: 1.5% 0 0 1%;
+  }
+  & #time {
+    margin-right: 1%;
+  }
+}
+
 #display {
   font: 20px roboto;
   border: none;
@@ -243,6 +269,20 @@ button {
     text-align: right;
     margin: 0; 
   }
+}
+
+#heading {
+  height: 38%;
+  width: 100%;
+}
+
+#border {
+  position: absolute;
+  width: 325px;
+  height: 11%;
+  left: -4.1%;
+  border-bottom: 0.3px solid rgba(0, 0, 0, 0.87);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
 
 #alert {

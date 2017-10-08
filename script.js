@@ -2,6 +2,7 @@ var button = document.querySelectorAll('button');
 var displayInput = document.getElementById('display-input');
 var displayResult = document.getElementById('display-result');
 var upToAlert = document.getElementById('alert');
+var time = document.getElementById('time');
 // console.log('butt');
 
 
@@ -10,6 +11,17 @@ var fSize = 0;
 var dot = false;
 var lastCharacter = (index) => text.charAt(text.length - index);
 var cv, qw;
+var d = new Date();
+var hours = d.getHours(), minutes = d.getMinutes();
+
+if (hours < 10) {
+  hours = '0' + hours;
+} 
+if (minutes < 10) {
+  minutes = '0' + minutes;
+} 
+
+time.innerHTML = hours + ':' + minutes;
 
 document.onclick = function () {
 
@@ -83,24 +95,27 @@ document.onclick = function () {
     if (text.length < 17) {
       if (fSize != 1) {
         displayInput.style.fontSize = 31;
+        displayResult.style.fontSize = 31;
         fSize = 1;
       }
     }
     if (text.length >= 17 && text.length < 20) {
       if (fSize != 2) {
         displayInput.style.fontSize = 27;
+        displayResult.style.fontSize = 27;
         fSize = 2;
       }
     }
     if (text.length >= 20) {
       if (text.length > 88) {
         upToAlert.style.display = 'block';
-        text=text.substring(0,88);
+        text = text.substring(0,88);
       } else {
         upToAlert.style.display = 'none';
       }
       if (fSize != 3) {
         displayInput.style.fontSize = 24;
+        displayResult.style.fontSize = 24;
         fSize = 3;
       }
     }
