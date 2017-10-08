@@ -233,10 +233,10 @@ button {
   & img {
     float: right;
     height: 60%;
-    margin: 1.5% 0 0 1%;
+    margin: 1.9% 0 0 1%;
   }
   & #alarm {
-    margin-top: 1%;
+    margin-top: 1.5%;
     height:70%;
   }
   & p {
@@ -247,6 +247,10 @@ button {
   }
   & #time {
     margin-right: 1%;
+  }
+  #signal {
+    height: 60%;
+    margin-top:2%;
   }
 }
 
