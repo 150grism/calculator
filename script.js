@@ -5,6 +5,7 @@ var displayResult = document.getElementById('display-result');
 
 
 var text = '';
+var fSize = 0;
 
 document.onclick = function () {
   let lastCharacter = text.charAt(text.length - 1);
@@ -29,7 +30,25 @@ document.onclick = function () {
     } else if (['+','-','*','/','%'].indexOf(lastCharacter) > -1 && val === lastCharacter) {
     } else if (val !== '=') {
       text += val;
-    } 
+    }
+    if (text.length < 17) {
+      if (fSize != 1) {
+        displayInput.style.fontSize = 32;
+        fSize = 1;
+      }
+    }
+    if (text.length >= 17 && text.length < 20) {
+      if (fSize != 2) {
+        displayInput.style.fontSize = 24;
+        fSize = 2;
+      }
+    }
+    if (text.length >= 20) {
+      if (fSize != 3) {
+        displayInput.style.fontSize = 20;
+        fSize = 3;
+      }
+    }
     displayInput.innerHTML = text;
     console.log(text);
 

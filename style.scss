@@ -5,11 +5,11 @@ body {
 
 #calculator {
   position: relative;
-  margin: 90px auto 0;
+  margin: 112.5px auto 0;
   width: 300px;
   & > img {
     position: absolute;
-    top: -72.75px;
+    top: -84.75px;
     left: -10.5%;
     z-index: -1;
     width: 122%;
@@ -58,7 +58,7 @@ button {
     left: 9.5%;
     margin-top: -1px;
     opacity: 0;
-    background: green;
+    // background: green;
   }
   & span {
     &::before, &::after {
@@ -230,15 +230,16 @@ button {
   height: 168.75px;;
   resize: none;
   overflow: auto;
-  margin-bottom: 12.5px;
+  // margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
   & #display-input {
     text-align: right;
     margin: 0;
-    height:50%;
+    word-wrap: break-word;
   }
   & #display-result {
     text-align: right;
     margin: 0; 
-    height:50%;
   }
 }
