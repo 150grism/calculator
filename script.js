@@ -29,6 +29,10 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
+    if (displayResult.innerHTML !== '') {
+      text = '';
+      displayResult.innerHTML = '';
+    }
     if (val === 'backspace') {
       if (lastCharacter(2) === ',') {
         text = text.slice(0, -2);
@@ -38,35 +42,35 @@ document.onclick = function () {
     } else if (val === 'clear') {
       text = '';
       displayResult.innerHTML = '';
-    } else if (['+','-','*','/'].indexOf(val) > -1 && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
+    } else if (['+','-','*','\u00F7'].indexOf(val) > -1 && ['+','-','	\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
     } else if (val === '.' && lastCharacter(1) === '%') {
-      for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+      for (cv = text.length - 1; ['+','-','	\u00D7','\u00F7','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
       qw = text.lastIndexOf('.');
       if ((qw >= cv && dot === false) || qw === -1) {
         dot = true;
-        text = text + '*0' + val;
+        text = text + '	\u00D7' + '0' + val;
       }
-    } else if (val === '%' && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
+    } else if (val === '%' && ['+','-','\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
       if (!lastCharacter(2) === '%') {
         text = text.slice(0, -1);
         text += val;
       } else {
         text = text.slice(0, -1);
       }
-    } else if (['+','-','*','/','%'].indexOf(lastCharacter(1)) > -1 && val === lastCharacter(1)) {
+    } else if (['+','-','\u00D7','\u00F7','%'].indexOf(lastCharacter(1)) > -1 && val === lastCharacter(1)) {
     } else if (val !== '=' && val !== '.' && theButton.className !== 'numbers') {
       text += val;
     }
     if (theButton.className == 'numbers') {
       if (val !== '.') {
         if (lastCharacter(1) === '%') {
-          text = text + '*' + val;
+          text = text + '\u00D7' + val;
         } else {
           text += val;
         }
-        for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+        for (cv = text.length - 1; ['+','-','\u00D7','\u00F7','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g,'');
         console.log(text);
         var zx = 0;
@@ -74,7 +78,7 @@ document.onclick = function () {
           // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
           zx++;
           zx = zx % 3;
-          if (zx === 0 && ['+','-','*','/','%'].indexOf(text.charAt(qw-1)) < 0) {
+          if (zx === 0 && ['+','-','\u00D7','\u00F7','%'].indexOf(text.charAt(qw-1)) < 0) {
             text = text.slice(0, qw) + "," + text.slice(qw);
             // console.log('-> ' + text);
           }
@@ -129,7 +133,9 @@ document.onclick = function () {
   }
 
   SchitaiBatika = () => {
-    text=text.replace(/,/g,'');
+    text = text.replace(/,/g,'');
+    text = text.replace(/\u00F7/g,'/');
+    text = text.replace(/\u00D7/g,'*');
     // console.clear();
     // console.log(eval(text));
     for (let i = 0; i < text.length; i++) {
