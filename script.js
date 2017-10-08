@@ -109,17 +109,18 @@ document.onclick = function () {
 
   SchitaiBatika = () => {
     text=text.replace(/,/g,'');
-    console.clear();
+    // console.clear();
     // console.log(eval(text));
     for (let i = 0; i < text.length; i++) {
       if ( text.charAt(i) === '%') {
-        console.log(i);
+        console.log('i:' + i);
         let k = 0, j;
         let percentText;
-        for (j = i-1; ['+','-','*','/','%'].indexOf(text[j]) < 0; j--) { 
+        for (j = i-1; ['+','-','*','/','%'].indexOf(text[j]) < 0 && j >= 0; j--) { 
           k++;
         }
-        console.log(j);
+        console.log('j:' + j);
+        console.log('k:' + k);
         percentText = text.substring(i-k, i+1);
         console.log(percentText);
         percentText = percentText.slice(0, -1);
