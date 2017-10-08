@@ -4,8 +4,16 @@ body {
 }
 
 #calculator {
-  margin: auto;
-  width: 220px;
+  position: relative;
+  margin: 130px auto 0;
+  width: 222px;
+  & > img {
+    position: absolute;
+    top: -107px;
+    left: -10.5%;
+    z-index: -1;
+    width: 122%;
+  }
 }
 
 button {
