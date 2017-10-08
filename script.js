@@ -1,6 +1,7 @@
 var button = document.querySelectorAll('button');
 var displayInput = document.getElementById('display-input');
 var displayResult = document.getElementById('display-result');
+var upToAlert = document.getElementById('alert');
 // console.log('butt');
 
 
@@ -11,8 +12,12 @@ document.onclick = function () {
   let lastCharacter = text.charAt(text.length - 1);
   let secondLastCharacter = text.charAt(text.length - 2);
   if (event.target.tagName == 'BUTTON') {
-    button = event.target;
+    theButton = event.target;
     val = event.target.value;
+    // if (typeof val = 'number')
+    if (theButton.className === 'number') {
+      console.log('ye');
+    }
     if (val === 'backspace') {
       text = text.slice(0, -1);
     } else if (val === 'clear') {
@@ -33,19 +38,25 @@ document.onclick = function () {
     }
     if (text.length < 17) {
       if (fSize != 1) {
-        displayInput.style.fontSize = 32;
+        displayInput.style.fontSize = 31;
         fSize = 1;
       }
     }
     if (text.length >= 17 && text.length < 20) {
       if (fSize != 2) {
-        displayInput.style.fontSize = 24;
+        displayInput.style.fontSize = 27;
         fSize = 2;
       }
     }
     if (text.length >= 20) {
+      if (text.length > 130) {
+        upToAlert.style.opacity = 1;
+        text=text.substring(0,88);
+      } else {
+        upToAlert.style.opacity = 0;
+      }
       if (fSize != 3) {
-        displayInput.style.fontSize = 20;
+        displayInput.style.fontSize = 24;
         fSize = 3;
       }
     }

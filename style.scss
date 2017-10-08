@@ -15,6 +15,7 @@ body {
     width: 122%;
   }
   .row {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding-bottom: 3%;
@@ -242,4 +243,19 @@ button {
     text-align: right;
     margin: 0; 
   }
+}
+
+#alert {
+  z-index: 2;
+  position: absolute;
+  top: 85%;
+  height: 44px;
+  margin: 15px;
+  width: 90%;
+  background: rgba(0,0,0,0.9);
+  text-align: center;
+  line-height: 44px;
+  color: rgba(255,255,255,0.95);
+  font-size: 16px;
+  opacity: 0;
 }
