@@ -161,7 +161,9 @@ document.onclick = function () {
     if (result.indexOf('.') > 0) {
       let i
       for (i = result.length - 1; result.charAt(i) !== '.'; i--) {}
-
+    } else {
+      i = result.length;
+    }
       var zx = 0;
       for (let qw = i - 1; qw > 0; qw--) {
         zx++;
@@ -171,7 +173,6 @@ document.onclick = function () {
           console.log('-> ' + result);
         }
       }
-    }
     result = '=' + result; 
     if (fSize = 1) {
       result = result.slice(0,16);
