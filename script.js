@@ -7,58 +7,65 @@ var upToAlert = document.getElementById('alert');
 
 var text = '';
 var fSize = 0;
+var dot = false;
+var lastCharacter = (index) => text.charAt(text.length - index);
 
 document.onclick = function () {
-  let lastCharacter = text.charAt(text.length - 1);
-  let secondLastCharacter = text.charAt(text.length - 2);
+
   if (event.target.tagName == 'BUTTON') {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
     
     if (val === 'backspace') {
-      text = text.slice(0, -1);
+      if (lastCharacter(2) === ',') {
+        text = text.slice(0, -2);
+      } else {
+        text = text.slice(0, -1);
+      }
     } else if (val === 'clear') {
       text = '';
-    } else if (['+','-','*','/'].indexOf(val) > -1 && ['+','-','*','/'].indexOf(lastCharacter) > -1) {
+    } else if (['+','-','*','/'].indexOf(val) > -1 && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
-    } else if (val === '%' && ['+','-','*','/'].indexOf(lastCharacter) > -1) {
-      if (!secondLastCharacter === '%') {
+    } else if (val === '.' && lastCharacter(1) === '%') {
+      text = text + '*0' + val;
+    } else if (val === '%' && ['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
+      if (!lastCharacter(2) === '%') {
         text = text.slice(0, -1);
         text += val;
       } else {
         text = text.slice(0, -1);
       }
-    } else if (['+','-','*','/','%'].indexOf(lastCharacter) > -1 && val === lastCharacter) {
-    } else if (val !== '=') {
+    } else if (['+','-','*','/','%'].indexOf(lastCharacter(1)) > -1 && val === lastCharacter(1)) {
+    } else if (val !== '=' && val !== '.') {
       text += val;
     }
     if (theButton.className == 'numbers') {
       if (val !== '.') {
-        var cv;
-        for (cv = text.length - 1; ['+','-','*','/','%'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+        var cv, qw;
+        for (cv = text.length - 1; ['+','-','*','/','%','.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g,'');
         console.log(text);
         var zx = 0;
-        for (let qw = text.length - 1; qw > cv + 1; qw--) {
+        for (qw = text.length - 1; qw > cv; qw--) {
           // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
           zx++;
           zx = zx % 3;
-          if (zx === 0) {
+          if (zx === 0 && ['+','-','*','/','%'].indexOf(text.charAt(qw-1)) < 0) {
             text = text.slice(0, qw) + "," + text.slice(qw);
             // console.log('-> ' + text);
           }
-          // if (text.charAt(qw) === '.') {
-          //   console.log('.')
-          //   let xc;
-          //   for (xc = 0; ['+','-','*','/','%'].indexOf(text.charAt(qw + xc)) < 0 && qw + xc < text.length - 1; xc++) {console.log(xc)}
-          //   console.log('=' + xc);
-          //   console.log(text);
-          //   text = text.replace(text.slice(qw, xc),text.slice(qw, xc).replace(/,/g,''));
-          //   console.log(text);
-          //   zx = 0;
-          // }
+        }
+        qw = text.lastIndexOf('.');
+        if (qw >= cv) {
+          dot = true;
+          console.log(qw + ' --- ' + cv);
+          text = text.slice(0, qw) + text.slice(qw).replace(/,/g,'');
+        } else {dot = false;}
+      } else {
+        if (dot === false) {
+          text += val;
         }
       }
     }
