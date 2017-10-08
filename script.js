@@ -15,9 +15,9 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
-    if (theButton.className === 'number') {
-      console.log('ye');
-    }
+    // if (theButton.className === 'number') {
+    //   console.log('ye');
+    // }
     if (val === 'backspace') {
       text = text.slice(0, -1);
     } else if (val === 'clear') {
