@@ -24,13 +24,13 @@ body {
         background: rgba(0, 0, 0, 0.18);
       }
       &:focus {
-        outline:none;
+        outline: none;
       }
     }
   }
 }
 
-.number {
+.numbers {
   background: white;
   font: 33px 'RobotoLight';
 }
@@ -257,5 +257,5 @@ button {
   line-height: 44px;
   color: rgba(255,255,255,0.95);
   font-size: 16px;
-  opacity: 0;
+  display: none;
 }

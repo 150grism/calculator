@@ -15,9 +15,7 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
-    // if (theButton.className === 'number') {
-    //   console.log('ye');
-    // }
+    
     if (val === 'backspace') {
       text = text.slice(0, -1);
     } else if (val === 'clear') {
@@ -36,6 +34,34 @@ document.onclick = function () {
     } else if (val !== '=') {
       text += val;
     }
+    if (theButton.className == 'numbers') {
+      if (val !== '.') {
+        var cv;
+        for (cv = text.length - 1; ['+','-','*','/','%'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+        text = text.slice(0, cv) + text.slice(cv).replace(/,/g,'');
+        console.log(text);
+        var zx = 0;
+        for (let qw = text.length - 1; qw > cv + 1; qw--) {
+          // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
+          zx++;
+          zx = zx % 3;
+          if (zx === 0) {
+            text = text.slice(0, qw) + "," + text.slice(qw);
+            // console.log('-> ' + text);
+          }
+          // if (text.charAt(qw) === '.') {
+          //   console.log('.')
+          //   let xc;
+          //   for (xc = 0; ['+','-','*','/','%'].indexOf(text.charAt(qw + xc)) < 0 && qw + xc < text.length - 1; xc++) {console.log(xc)}
+          //   console.log('=' + xc);
+          //   console.log(text);
+          //   text = text.replace(text.slice(qw, xc),text.slice(qw, xc).replace(/,/g,''));
+          //   console.log(text);
+          //   zx = 0;
+          // }
+        }
+      }
+    }
     if (text.length < 17) {
       if (fSize != 1) {
         displayInput.style.fontSize = 31;
@@ -49,11 +75,11 @@ document.onclick = function () {
       }
     }
     if (text.length >= 20) {
-      if (text.length > 130) {
-        upToAlert.style.opacity = 1;
+      if (text.length > 88) {
+        upToAlert.style.display = 'block';
         text=text.substring(0,88);
       } else {
-        upToAlert.style.opacity = 0;
+        upToAlert.style.display = 'none';
       }
       if (fSize != 3) {
         displayInput.style.fontSize = 24;
@@ -70,6 +96,7 @@ document.onclick = function () {
   }
 
   SchitaiBatika = () => {
+    text=text.replace(/,/g,'');
     console.clear();
     // console.log(eval(text));
     for (let i = 0; i < text.length; i++) {
