@@ -12,8 +12,8 @@ var dot = false;
 var lastCharacter = (index) => text.charAt(text.length - index);
 var cv, qw;
 var d = new Date();
-var hours = d.getHours(), minutes = d.getMinutes();
 
+var hours = d.getHours(), minutes = d.getMinutes();
 if (hours < 10) {
   hours = '0' + hours;
 } 
@@ -42,7 +42,7 @@ document.onclick = function () {
     } else if (val === 'clear') {
       text = '';
       displayResult.innerHTML = '';
-    } else if (['+','-','*','\u00F7'].indexOf(val) > -1 && ['+','-','	\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
+    } else if (['+','-','\u00D7','\u00F7'].indexOf(val) > -1 && ['+','-','\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
     } else if (val === '.' && lastCharacter(1) === '%') {
@@ -52,9 +52,9 @@ document.onclick = function () {
         dot = true;
         text = text + '	\u00D7' + '0' + val;
       }
-    } else if (val === '%' && text.length === 0) {
+    } else if (['\u00D7','\u00F7','%'].indexOf(val) > -1 && text.length === 0) {
     } else if (val === '%' && ['+','-','\u00D7','\u00F7'].indexOf(lastCharacter(1)) > -1) {
-      if (!lastCharacter(2) === '%') {
+      if (lastCharacter(2) !== '%') {
         text = text.slice(0, -1);
         text += val;
       } else {
@@ -157,15 +157,19 @@ document.onclick = function () {
         console.log(text);
       }
     }
+    while (['+','-','*','/'].indexOf(lastCharacter(1)) > -1) {
+      text = text.slice(0, -1);
+      console.log(text);
+    }
     result = eval(text).toString();
+    let i;
     if (result.indexOf('.') > 0) {
-      let i
       for (i = result.length - 1; result.charAt(i) !== '.'; i--) {}
     } else {
       i = result.length;
     }
       var zx = 0;
-      for (let qw = i - 1; qw > 0; qw--) {
+      for (qw = i - 1; qw > 0; qw--) {
         zx++;
         zx = zx % 3;
         if (zx === 0) {
