@@ -1,25 +1,51 @@
 body {
-  margin: 0; 
+  margin: 0;
+  padding: 0; 
   font: 22px roboto;
-  background: black;
 }
 
 #calculator {
   position: relative;
-  margin: 112.5px auto 0;
-  width: 300px;
+  padding: 0;
+  @media (min-width: 1px) {
+    margin: 0;
+    width: 95%; 
+    left: 2.5%;
+    height: 100vh;
+  }
+  @media (min-width: 481px) {
+    width: 300px;
+    margin: 112.5px auto 0;
+  }
   & > img {
     position: absolute;
     top: -84.75px;
     left: -10.5%;
     z-index: -1;
     width: 122%;
+    @media (min-width: 1px) {
+      display: none;
+      top: -84.75px;
+      left: -10.5%;
+    }
+    @media (min-width: 481px) {
+      display: initial;
+      top: -84.75px;
+      left: -10.5%;
+      width: 122%;
+    }
   }
   .row {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding-bottom: 3%;
+    @media (min-width: 1px) {
+      justify-content: space-around;
+    }
+    @media (min-width: 481px) {
+      justify-content: space-between;
+    }
     & button {
       &:hover {
         cursor:pointer;
@@ -31,7 +57,7 @@ body {
         outline: none;
       }
     }
-    #clear:active, #fireworks:active {
+    #clear:active, {
       background: #db7e20;
     }
     #backspace:active {
@@ -42,11 +68,6 @@ body {
         background: rgba(0, 0, 0, 0.18);
       }
     }
-    // #fireworks {
-    //   &:active {
-    //     background: #be1c0a;
-    //   }
-    // }
   }
 }
 
@@ -57,20 +78,39 @@ body {
 
 button {
   display: inline-block;
-  width: 62.5px;
-  height: 62.5px;
   border: 0.8px solid rgba(105, 105, 105, 0.86);
   border-radius: 50%;
   font: inherit;
+  @media (min-width: 1px) {
+    width: 62.5px;
+    height: 62.5px;
+  }
+  @media (min-width: 330px) {
+    width: 65px;
+    height: 65px;
+  }
+  @media (min-width: 360px) {
+    width: 69px;
+    height: 69px;
+  }
+  @media (min-width: 390px) {
+    width: 73px;
+    height: 73px;
+  }
+  @media (min-width: 420px) {
+    width: 79px;
+    height: 79px;
+  }
+  @media (min-width: 450px) {
+    width: 82px;
+    height: 82px;
+  }
+  @media (min-width: 481px) {
+    width: 62.5px;
+    height: 62.5px;
+  }
   & img {
     width: 100%;
-  }
-}
-
-#fireworks {
-  background: #ea8822;
-  & > img {
-    width: 80%;
   }
 }
 
@@ -334,12 +374,38 @@ button {
   font: 20px roboto;
   border: none;
   width: 100%;
-  height: 168.75px;;
+  height: 168.75px;
   resize: none;
   overflow: auto;
   // margin-bottom: 2px;
   display: flex;
   flex-direction: column;
+  @media (min-width: 1px) {
+    height: calc(93vh - (62.5px * 5));
+  }
+  @media (min-width: 330px) {
+    // height: 65px;
+    height: calc(93vh - (65px * 5));
+  }
+  @media (min-width: 360px) {
+    height: 69px;
+    height: calc(93vh - (69px * 5));
+  }
+  @media (min-width: 390px) {
+    // height: 73px;
+    height: calc(93vh - (73px * 5));
+  }
+  @media (min-width: 420px) {
+    // height: 79px;
+    height: calc(93vh - (79px * 5));
+  }
+  @media (min-width: 450px) {
+    // height: 82px;
+    height: calc(93vh - (82px * 5));
+  }
+  @media (min-width: 481px) {
+    height: 168.75px;
+  }
   & #display-input {
     text-align: right;
     margin: 0;
@@ -358,9 +424,15 @@ button {
 
 #border {
   position: absolute;
-  width: 325px;
+  @media (min-width: 1px) {
+    left: 0;
+    width: 100%;
+  }
+  @media (min-width: 481px) {
+    width: 325px;
+    left: -4.1%;
+  }
   height: 11%;
-  left: -4.1%;
   border-bottom: 0.3px solid rgba(0, 0, 0, 0.87);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
