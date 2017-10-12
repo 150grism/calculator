@@ -29,6 +29,12 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     // if (typeof val = 'number')
+    if (text.replace(/,/g,'').length > 35) {
+      upToAlert.style.display = 'block';
+      text = text.slice(0, -1);
+    } else {
+      upToAlert.style.display = 'none';
+    }
     if (displayResult.innerHTML !== '') {
       text = '';
       displayResult.innerHTML = '';
@@ -112,12 +118,6 @@ document.onclick = function () {
       }
     }
     if (text.length >= 20) {
-      if (text.length > 88) {
-        upToAlert.style.display = 'block';
-        text = text.substring(0,88);
-      } else {
-        upToAlert.style.display = 'none';
-      }
       if (fSize != 3) {
         displayInput.style.fontSize = 24;
         displayResult.style.fontSize = 24;

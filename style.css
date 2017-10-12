@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font: 22px roboto;
+  background: black;
 }
 
 #calculator {
@@ -29,11 +30,23 @@ body {
 }
 
 #calculator .row button:active {
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.06);
 }
 
 #calculator .row button:focus {
   outline: none;
+}
+
+#calculator .row #clear:active, #calculator .row #fireworks:active {
+  background: #db7e20;
+}
+
+#calculator .row #backspace:active {
+  background: #be0a25;
+}
+
+#calculator .row #div:active, #calculator .row #mult:active, #calculator .row #perc:active, #calculator .row #subt:active, #calculator .row #add:active, #calculator .row #eq:active {
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .numbers {
@@ -52,6 +65,14 @@ button {
 
 button img {
   width: 100%;
+}
+
+#fireworks {
+  background: #ea8822;
+}
+
+#fireworks > img {
+  width: 80%;
 }
 
 #backspace {

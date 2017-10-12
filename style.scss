@@ -1,6 +1,7 @@
 body {
   margin: 0; 
   font: 22px roboto;
+  background: black;
 }
 
 #calculator {
@@ -24,12 +25,28 @@ body {
         cursor:pointer;
       }
       &:active {
-        background: rgba(0, 0, 0, 0.18);
+        background: rgba(0, 0, 0, 0.06);
       }
       &:focus {
         outline: none;
       }
     }
+    #clear:active, #fireworks:active {
+      background: #db7e20;
+    }
+    #backspace:active {
+      background: #be0a25;
+    }
+    #div, #mult, #perc, #subt, #add, #eq {
+      &:active {
+        background: rgba(0, 0, 0, 0.18);
+      }
+    }
+    // #fireworks {
+    //   &:active {
+    //     background: #be1c0a;
+    //   }
+    // }
   }
 }
 
@@ -47,6 +64,13 @@ button {
   font: inherit;
   & img {
     width: 100%;
+  }
+}
+
+#fireworks {
+  background: #ea8822;
+  & > img {
+    width: 80%;
   }
 }
 
