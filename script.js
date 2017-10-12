@@ -12,6 +12,7 @@ var dot = false;
 var lastCharacter = (index) => text.charAt(text.length - index);
 var cv, qw;
 var d = new Date();
+var timer;
 
 var hours = d.getHours(), minutes = d.getMinutes();
 if (hours < 10) {
@@ -31,6 +32,8 @@ document.onclick = function () {
     // if (typeof val = 'number')
     if (text.replace(/,/g,'').length > 35) {
       upToAlert.style.display = 'block';
+      endAndStartTimer();
+      // setTimeout(function() {upToAlert.style.display = 'none';}, 3000);
       text = text.slice(0, -1);
     } else {
       upToAlert.style.display = 'none';
@@ -189,4 +192,10 @@ document.onclick = function () {
     }
     displayResult.innerHTML = result;  
   }
+}
+
+function endAndStartTimer() {
+  window.clearTimeout(timer);
+  //var millisecBeforeRedirect = 10000; 
+  timer = window.setTimeout(function() {upToAlert.style.display = 'none';}, 3000); 
 }
