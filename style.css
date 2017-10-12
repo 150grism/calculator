@@ -11,9 +11,8 @@ body {
 
 @media (min-width: 1px) {
   #calculator {
-    margin: 0;
-    width: 95%;
-    left: 2.5%;
+    margin: 0 5%;
+    width: 90%;
     height: 100vh;
   }
 }
@@ -54,18 +53,7 @@ body {
   position: relative;
   display: flex;
   padding-bottom: 3%;
-}
-
-@media (min-width: 1px) {
-  #calculator .row {
-    justify-content: space-around;
-  }
-}
-
-@media (min-width: 481px) {
-  #calculator .row {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 }
 
 #calculator .row button:hover {
@@ -236,12 +224,82 @@ button img {
 
 #div::before {
   content: '.';
-  top: 4%;
+}
+
+@media (min-width: 1px) {
+  #div::before {
+    top: 3%;
+  }
+}
+
+@media (min-width: 360px) {
+  #div::before {
+    top: 6%;
+  }
+}
+
+@media (min-width: 390px) {
+  #div::before {
+    top: 8%;
+  }
+}
+
+@media (min-width: 390px) {
+  #div::before {
+    top: 10%;
+  }
+}
+
+@media (min-width: 481px) {
+  #div::before {
+    top: 4%;
+  }
 }
 
 #div::after {
   content: '.';
-  top: 32%;
+}
+
+@media (min-width: 1px) {
+  #div::after {
+    top: 32%;
+  }
+}
+
+@media (min-width: 320px) {
+  #div::after {
+    top: 32.5%;
+  }
+}
+
+@media (min-width: 340px) {
+  #div::after {
+    top: 35%;
+  }
+}
+
+@media (min-width: 360px) {
+  #div::after {
+    top: 34%;
+  }
+}
+
+@media (min-width: 390px) {
+  #div::after {
+    top: 35%;
+  }
+}
+
+@media (min-width: 420px) {
+  #div::after {
+    top: 39%;
+  }
+}
+
+@media (min-width: 481px) {
+  #div::after {
+    top: 32%;
+  }
 }
 
 #div span::before {
@@ -272,18 +330,98 @@ button img {
 
 #perc::before {
   content: '\0005AF';
-  top: 5%;
+}
+
+@media (min-width: 1px) {
+  #perc::before {
+    top: 5%;
+  }
+}
+
+@media (min-width: 360px) {
+  #perc::before {
+    top: 7%;
+  }
+}
+
+@media (min-width: 390px) {
+  #perc::before {
+    top: 5%;
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 420px) {
+  #perc::before {
+    top: 8%;
+  }
+}
+
+@media (min-width: 481px) {
+  #perc::before {
+    top: 5%;
+    font-size: 2.5em;
+  }
 }
 
 #perc::after {
   content: '\0005AF';
-  top: 33%;
+}
+
+@media (min-width: 1px) {
+  #perc::after {
+    top: 31%;
+  }
+}
+
+@media (min-width: 320px) {
+  #perc::after {
+    top: 33%;
+  }
+}
+
+@media (min-width: 340px) {
+  #perc::after {
+    top: 35%;
+  }
+}
+
+@media (min-width: 360px) {
+  #perc::after {
+    top: 36%;
+  }
+}
+
+@media (min-width: 390px) {
+  #perc::after {
+    top: 33%;
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 420px) {
+  #perc::after {
+    top: 36%;
+  }
+}
+
+@media (min-width: 460px) {
+  #perc::after {
+    top: 36%;
+  }
+}
+
+@media (min-width: 481px) {
+  #perc::after {
+    top: 32%;
+    font-size: 2.5em;
+  }
 }
 
 #perc span::before {
   content: '';
   position: absolute;
-  height: 1.5px;
+  height: 2px;
   width: 40%;
   top: 50%;
   left: 30%;
@@ -354,6 +492,18 @@ button img {
   height: 23.75px;
   width: 108%;
   display: float;
+}
+
+@media (min-width: 1px) {
+  #top-nav-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) {
+  #top-nav-bar {
+    display: initial;
+  }
 }
 
 #top-nav-bar img {
@@ -504,17 +654,21 @@ button img {
   width: 100%;
 }
 
+#heading h7 {
+  font-size: 22px;
+}
+
 #border {
   position: absolute;
-  height: 11%;
   border-bottom: 0.3px solid rgba(0, 0, 0, 0.87);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 1px) {
   #border {
-    left: 0;
-    width: 100%;
+    left: -10px;
+    width: 100vw;
+    height: 11%;
   }
 }
 
@@ -522,6 +676,7 @@ button img {
   #border {
     width: 325px;
     left: -4.1%;
+    height: 58px;
   }
 }
 

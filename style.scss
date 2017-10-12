@@ -8,9 +8,8 @@ body {
   position: relative;
   padding: 0;
   @media (min-width: 1px) {
-    margin: 0;
-    width: 92%; 
-    left: 4%;
+    margin: 0 5%;
+    width: 90%; 
     height: 100vh;
   }
   @media (min-width: 481px) {
@@ -276,17 +275,17 @@ button {
       top: 33%;
     }
     @media (min-width: 340px) {
-      top: 33%;
+      top: 35%;
     }
     @media (min-width: 360px) {
-      top: 34%;
+      top: 36%;
     }
     @media (min-width: 390px) {
-      top: 31%;
+      top: 33%;
       font-size: 3em;
     }
     @media (min-width: 420px) {
-      top: 37%;
+      top: 36%;
     }
     @media (min-width: 460px) {
       top: 36%;
@@ -306,7 +305,6 @@ button {
       left: 30%;
       margin-top: -1px;
       background: #000;
-      }
     }
   }
 }
