@@ -9,8 +9,8 @@ body {
   padding: 0;
   @media (min-width: 1px) {
     margin: 0;
-    width: 95%; 
-    left: 2.5%;
+    width: 92%; 
+    left: 4%;
     height: 100vh;
   }
   @media (min-width: 481px) {
@@ -40,12 +40,7 @@ body {
     display: flex;
     // justify-content: space-between;
     padding-bottom: 3%;
-    @media (min-width: 1px) {
-      justify-content: space-around;
-    }
-    @media (min-width: 481px) {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
     & button {
       &:hover {
         cursor:pointer;
@@ -186,11 +181,48 @@ button {
   }
   &::before {
     content: '.';
-    top: 4%;
+    @media (min-width: 1px) {
+      top: 3%;
+    }
+    @media (min-width: 360px) {
+      top: 6%;
+    }
+    @media (min-width: 390px) {
+      top: 8%;
+    }
+    @media (min-width: 390px) {
+      top: 10%;
+    }
+    @media (min-width: 481px) {
+      top: 4%;
+    }
   }
   &::after {
     content: '.';
-    top: 32%;
+    @media (min-width: 1px) {
+      top: 32%;
+    }
+    @media (min-width: 320px) {
+      top: 32.5%;
+    }
+    @media (min-width: 340px) {
+      top: 35%;
+    }
+    @media (min-width: 360px) {
+      top: 34%;
+    }
+    @media (min-width: 390px) {
+      top: 35%;
+    }
+    @media (min-width: 390px) {
+      top: 35%;
+    }
+    @media (min-width: 420px) {
+      top: 39%;
+    }
+    @media (min-width: 481px) {
+      top: 32%;
+    }
   }
   & span {
     &::before {
@@ -297,6 +329,12 @@ button {
   height: 23.75px;
   width: 108%;
   display: float;
+  @media (min-width: 1px) {
+    display: none;
+  }
+  @media (min-width: 481px) {
+    display: initial;
+  }
   & img {
     float: right;
     height: 60%;
@@ -420,19 +458,23 @@ button {
 #heading {
   height: 38%;
   width: 100%;
+  & h7 {
+    font-size: 22px;
+  }
 }
 
 #border {
   position: absolute;
   @media (min-width: 1px) {
-    left: 0;
-    width: 100%;
+    left: -10px;
+    width: 100vw;
+    height: 11%;
   }
   @media (min-width: 481px) {
     width: 325px;
     left: -4.1%;
+    height: 58px;
   }
-  height: 11%;
   border-bottom: 0.3px solid rgba(0, 0, 0, 0.87);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
