@@ -93,8 +93,12 @@ body {
 }
 
 #calculator .row button:disabled {
-  background: rgba(0, 0, 0, 0.12);
-  border: 0.8px solid rgba(105, 105, 105, 0.5);
+  background: rgba(0, 0, 0, 0.06);
+  border: 0.8px solid rgba(222, 222, 222, 0.38);
+}
+
+#calculator .row button:disabled:hover {
+  cursor: auto;
 }
 
 #calculator .row button:disabled:active {
@@ -219,7 +223,7 @@ button img {
   width: 33.333%;
   top: 50%;
   left: 33.333%;
-  margin-top: -1.25px;
+  margin-top: -1px;
   background: #5c5c5c;
 }
 
