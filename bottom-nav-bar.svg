@@ -1,0 +1,44 @@
+<svg width="361" height="56" viewBox="0 0 361 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Component</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(650 -10)">
+<g id="Component">
+<g id="Rectangle">
+<use xlink:href="#path0_fill" transform="translate(-650 10)"/>
+</g>
+<g id="Polygon">
+<mask id="mask0_outline_ins">
+<use xlink:href="#path1_fill" fill="white" transform="matrix(1.80411e-16 -1 1 1.80411e-16 -578 50)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path2_stroke_2x" transform="matrix(1.80411e-16 -1 1 1.80411e-16 -578 50)" fill="#FFFFFF"/>
+</g>
+</g>
+<g id="Ellipse">
+<mask id="mask1_outline_ins">
+<use xlink:href="#path3_fill" fill="white" transform="translate(-482 26)"/>
+</mask>
+<g mask="url(#mask1_outline_ins)">
+<use xlink:href="#path4_stroke_2x" transform="translate(-482 26)" fill="#FFFFFF"/>
+</g>
+</g>
+<g id="Rectangle 2">
+<mask id="mask2_outline_ins">
+<use xlink:href="#path5_fill" fill="white" transform="translate(-385 26)"/>
+</mask>
+<g mask="url(#mask2_outline_ins)">
+<use xlink:href="#path6_stroke_2x" transform="translate(-385 26)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 0L 361 0L 361 56L 0 56L 0 0Z"/>
+<path id="path1_fill" d="M 12 0L 22.3923 18L 1.6077 18L 12 0Z"/>
+<path id="path2_stroke_2x" d="M 12 0L 12.866 -0.5L 12 -2L 11.134 -0.5L 12 0ZM 22.3923 18L 22.3923 19L 24.1244 19L 23.2583 17.5L 22.3923 18ZM 1.6077 18L 0.74167 17.5L -0.124356 19L 1.6077 19L 1.6077 18ZM 11.134 0.5L 21.5263 18.5L 23.2583 17.5L 12.866 -0.5L 11.134 0.5ZM 22.3923 17L 1.6077 17L 1.6077 19L 22.3923 19L 22.3923 17ZM 2.47372 18.5L 12.866 0.5L 11.134 -0.5L 0.74167 17.5L 2.47372 18.5Z"/>
+<path id="path3_fill" d="M 24 12C 24 18.6274 18.6274 24 12 24C 5.37258 24 0 18.6274 0 12C 0 5.37258 5.37258 0 12 0C 18.6274 0 24 5.37258 24 12Z"/>
+<path id="path4_stroke_2x" d="M 23 12C 23 18.0751 18.0751 23 12 23L 12 25C 19.1797 25 25 19.1797 25 12L 23 12ZM 12 23C 5.92487 23 1 18.0751 1 12L -1 12C -1 19.1797 4.8203 25 12 25L 12 23ZM 1 12C 1 5.92487 5.92487 1 12 1L 12 -1C 4.8203 -1 -1 4.8203 -1 12L 1 12ZM 12 1C 18.0751 1 23 5.92487 23 12L 25 12C 25 4.8203 19.1797 -1 12 -1L 12 1Z"/>
+<path id="path5_fill" d="M 0 0L 24 0L 24 24L 0 24L 0 0Z"/>
+<path id="path6_stroke_2x" d="M 0 0L 0 -1L -1 -1L -1 0L 0 0ZM 24 0L 25 0L 25 -1L 24 -1L 24 0ZM 24 24L 24 25L 25 25L 25 24L 24 24ZM 0 24L -1 24L -1 25L 0 25L 0 24ZM 0 1L 24 1L 24 -1L 0 -1L 0 1ZM 23 0L 23 24L 25 24L 25 0L 23 0ZM 24 23L 0 23L 0 25L 24 25L 24 23ZM 1 24L 1 0L -1 0L -1 24L 1 24Z"/>
+</defs>
+</svg>
