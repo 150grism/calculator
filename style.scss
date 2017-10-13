@@ -69,6 +69,13 @@ body {
         background: rgba(0, 0, 0, 0.18);
       }
     }
+    #disabled{
+      background: rgba(0, 0, 0, 0.12);
+      border: 0.8px solid rgba(105, 105, 105, 0.5);
+      &:active {
+        background: rgba(0, 0, 0, 0.12);
+      }
+    }
   }
 }
 

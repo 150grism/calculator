@@ -92,6 +92,15 @@ body {
   background: rgba(0, 0, 0, 0.18);
 }
 
+#calculator .row #disabled {
+  background: rgba(0, 0, 0, 0.12);
+  border: 0.8px solid rgba(105, 105, 105, 0.5);
+}
+
+#calculator .row #disabled:active {
+  background: rgba(0, 0, 0, 0.12);
+}
+
 .numbers {
   background: white;
   font: 33px 'RobotoLight';
