@@ -20,7 +20,7 @@ body {
 @media (min-width: 481px) {
   #calculator {
     width: 300px;
-    margin: 112.5px auto 0;
+    margin: 100px auto 0;
   }
 }
 
@@ -104,11 +104,12 @@ body {
 .numbers {
   background: white;
   font: 33px 'RobotoLight';
+  color: #5c5c5c;
 }
 
 button {
   display: inline-block;
-  border: 0.8px solid rgba(105, 105, 105, 0.86);
+  border: 0.8px solid rgba(0, 0, 0, 0.38);
   border-radius: 50%;
   font: inherit;
 }
@@ -219,7 +220,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1.25px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #mult::before {
@@ -232,6 +233,7 @@ button img {
 
 #div {
   position: relative;
+  color: #5c5c5c;
 }
 
 #div::before, #div::after {
@@ -331,123 +333,16 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #perc {
   position: relative;
-  transform: rotate(-45deg);
+  color: #5c5c5c;
 }
 
-#perc::before, #perc::after {
-  font-size: 2.5em;
-  font-weight: 900;
-  position: absolute;
-  margin-top: -1px;
-  height: 2px;
-  width: 33.333%;
-  left: 33.333%;
-}
-
-#perc::before {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::before {
-    top: 5%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::before {
-    top: 7%;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::before {
-    top: 5%;
-    font-size: 3em;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::before {
-    top: 8%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::before {
-    top: 5%;
-    font-size: 2.5em;
-  }
-}
-
-#perc::after {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::after {
-    top: 31%;
-  }
-}
-
-@media (min-width: 320px) {
-  #perc::after {
-    top: 33%;
-  }
-}
-
-@media (min-width: 340px) {
-  #perc::after {
-    top: 35%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::after {
-    top: 33%;
-    font-size: 3em;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 460px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::after {
-    top: 32%;
-    font-size: 2.5em;
-  }
-}
-
-#perc span::before {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 40%;
-  top: 50%;
-  left: 30%;
-  margin-top: -1px;
-  background: #000;
+#perc img {
+  width: 50%;
 }
 
 #subt {
@@ -462,7 +357,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #add {
@@ -477,7 +372,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #add::after {
@@ -496,7 +391,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #eq::before {
@@ -676,7 +571,8 @@ button img {
 }
 
 #heading h7 {
-  font-size: 22px;
+  font-size: 16px;
+  font-weight: 900;
 }
 
 #border {
@@ -704,8 +600,6 @@ button img {
 #alert {
   z-index: 2;
   position: absolute;
-  top: 85%;
-  height: 44px;
   margin: 15px;
   width: 90%;
   background: rgba(0, 0, 0, 0.9);
@@ -714,6 +608,20 @@ button img {
   color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
   display: none;
+}
+
+@media (min-width: 1px) {
+  #alert {
+    top: 0.5vh;
+    height: 48px;
+  }
+}
+
+@media (min-width: 481px) {
+  #alert {
+    top: -7px;
+    height: 44px;
+  }
 }
  
 
