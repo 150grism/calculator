@@ -20,7 +20,7 @@ body {
 @media (min-width: 481px) {
   #calculator {
     width: 300px;
-    margin: 112.5px auto 0;
+    margin: 100px auto 0;
   }
 }
 

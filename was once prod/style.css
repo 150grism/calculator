@@ -20,7 +20,7 @@ body {
 @media (min-width: 481px) {
   #calculator {
     width: 300px;
-    margin: 112.5px auto 0;
+    margin: 100px auto 0;
   }
 }
 
@@ -339,118 +339,10 @@ button img {
 #perc {
   position: relative;
   color: #5c5c5c;
-  transform: rotate(-45deg);
 }
 
-#perc::before, #perc::after {
-  font-size: 56px;
-  font-weight: 900;
-  position: absolute;
-  margin-top: -1px;
-  height: 2px;
-  width: 33.333%;
-  left: 33.333%;
-}
-
-#perc::before {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::before {
-    top: 5%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::before {
-    top: 2%;
-    font-size: 72px;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::before {
-    top: 5%;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::before {
-    top: 6.5%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::before {
-    top: 5%;
-    font-size: 56px;
-  }
-}
-
-#perc::after {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::after {
-    top: 31%;
-  }
-}
-
-@media (min-width: 320px) {
-  #perc::after {
-    top: 33%;
-  }
-}
-
-@media (min-width: 340px) {
-  #perc::after {
-    top: 35%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::after {
-    top: 29%;
-    font-size: 72px;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::after {
-    top: 31%;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::after {
-    top: 33.5%;
-  }
-}
-
-@media (min-width: 460px) {
-  #perc::after {
-    top: 35%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::after {
-    top: 32%;
-    font-size: 56px;
-  }
-}
-
-#perc span::before {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 40%;
-  top: 50%;
-  left: 30%;
-  margin-top: -1px;
-  background: #5c5c5c;
+#perc img {
+  width: 50%;
 }
 
 #subt {
