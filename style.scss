@@ -1,5 +1,5 @@
 // $elementGray: rgba(0, 0, 0, 0.7);
-$elementGray: rgb(92, 92, 92);
+$elementGray: #5c5c5c;
 $buttonBorderGray: rgba(0, 0, 0, 0.38);
 
 body {
@@ -257,77 +257,80 @@ button {
 #perc {
   position: relative;
   color: $elementGray;
-  transform: rotate(-45deg);
-  &::before, &::after {
-    font-size: 56px;
-    font-weight: 900;
-    position: absolute;
-    margin-top: -1px;
-    height: 2px;
-    width: 33.333%;
-    left: 33.333%;
+  & img {
+    width: 50%;
   }
-  &::before {
-    content: '\0005AF';
-    @media (min-width: 1px) {
-      top: 5%;
-    }
-    @media (min-width: 360px) {
-      top: 2%;
-      font-size: 72px;
-    }
-    @media (min-width: 390px) {
-      top: 5%;
-    }
-    @media (min-width: 420px) {
-      top: 6.5%;
-    }
-    @media (min-width: 481px) {
-      top: 5%;
-      font-size: 56px;
-    }
-  }
-  &::after {
-    content: '\0005AF';
-    @media (min-width: 1px) {
-      top: 31%;
-    }
-    @media (min-width: 320px) {
-      top: 33%;
-    }
-    @media (min-width: 340px) {
-      top: 35%;
-    }
-    @media (min-width: 360px) {
-      top: 29%;
-      font-size: 72px;
-    }
-    @media (min-width: 390px) {
-      top: 31%;
-    }
-    @media (min-width: 420px) {
-      top: 33.5%;
-    }
-    @media (min-width: 460px) {
-      top: 35%;
-    }
-    @media (min-width: 481px) {
-      top: 32%;
-      font-size: 56px;
-    }
-  }
-  & span {
-    &::before {
-      content: '';
-      position: absolute;
-      height: 2px;
-      width: 40%;
-      top: 50%;
-      left: 30%;
-      margin-top: -1px;
-      background: $elementGray;
-    }
-  }
+  // transform: rotate(-45deg);
+  // &::before, &::after {
+  //   font-size: 56px;
+  //   font-weight: 900;
+  //   position: absolute;
+  //   margin-top: -1px;
+  //   height: 2px;
+  //   width: 33.333%;
+  //   left: 33.333%;
+  // }
+  // &::before {
+  //   content: '\0005AF';
+  //   @media (min-width: 1px) {
+  //     top: 5%;
+  //   }
+  //   @media (min-width: 360px) {
+  //     top: 2%;
+  //     font-size: 72px;
+  //   }
+  //   @media (min-width: 390px) {
+  //     top: 5%;
+  //   }
+  //   @media (min-width: 420px) {
+  //     top: 6.5%;
+  //   }
+  //   @media (min-width: 481px) {
+  //     top: 5%;
+  //     font-size: 56px;
+  //   }
+  // }
+  // &::after {
+  //   content: '\0005AF';
+  //   @media (min-width: 1px) {
+  //     top: 31%;
+  //   }
+  //   @media (min-width: 320px) {
+  //     top: 33%;
+  //   }
+  //   @media (min-width: 340px) {
+  //     top: 35%;
+  //   }
+  //   @media (min-width: 360px) {
+  //     top: 29%;
+  //     font-size: 72px;
+  //   }
+  //   @media (min-width: 390px) {
+  //     top: 31%;
+  //   }
+  //   @media (min-width: 420px) {
+  //     top: 33.5%;
+  //   }
+  //   @media (min-width: 460px) {
+  //     top: 35%;
+  //   }
+  //   @media (min-width: 481px) {
+  //     top: 32%;
+  //     font-size: 56px;
+  //   }
+  // }
+  // & span {
+  //   &::before {
+  //     content: '';
+  //     position: absolute;
+  //     height: 2px;
+  //     width: 40%;
+  //     top: 50%;
+  //     left: 30%;
+  //     margin-top: -1px;
+  //     background: $elementGray;
+  //   }
+  // }
 }
 
 #subt {
