@@ -599,8 +599,6 @@ button img {
 #alert {
   z-index: 2;
   position: absolute;
-  top: 85%;
-  height: 44px;
   margin: 15px;
   width: 90%;
   background: rgba(0, 0, 0, 0.9);
@@ -609,6 +607,20 @@ button img {
   color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
   display: none;
+}
+
+@media (min-width: 1px) {
+  #alert {
+    top: 0.5vh;
+    height: 48px;
+  }
+}
+
+@media (min-width: 481px) {
+  #alert {
+    top: -7px;
+    height: 44px;
+  }
 }
  
 

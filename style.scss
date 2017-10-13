@@ -543,8 +543,17 @@ button {
 #alert {
   z-index: 2;
   position: absolute;
-  top: 85%;
-  height: 44px;
+  @media (min-width: 1px) {
+    top: 0.5vh;
+    // top: calc(100vh - 88px);
+    height: 48px;
+  }
+  @media (min-width: 481px) {
+    top: -7px;
+    // top: 449px;
+    height: 44px;
+  }
+  // height: 44px;
   margin: 15px;
   width: 90%;
   background: rgba(0,0,0,0.9);
