@@ -81,11 +81,11 @@ body {
 }
 
 #calculator .row #clear:active {
-  background: #db7e20;
+  background: rgba(218, 125, 32, 0.87);
 }
 
 #calculator .row #backspace:active {
-  background: #be0a25;
+  background: rgba(188, 9, 36, 0.87);
 }
 
 #calculator .row #div:active, #calculator .row #mult:active, #calculator .row #perc:active, #calculator .row #subt:active, #calculator .row #add:active, #calculator .row #eq:active {
@@ -169,7 +169,7 @@ button img {
 
 #backspace {
   position: relative;
-  background: #ce0c27;
+  background: rgba(206, 12, 41, 0.87);
 }
 
 #backspace::before {
@@ -204,7 +204,7 @@ button img {
 
 #clear {
   color: white;
-  background: #ea8822;
+  background: rgba(234, 136, 34, 0.87);
   font-family: 'RobotoMedium';
 }
 

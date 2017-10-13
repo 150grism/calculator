@@ -63,10 +63,10 @@ body {
       }
     }
     #clear:active, {
-      background: #db7e20;
+      background: rgba(218, 125, 32, 0.87);
     }
     #backspace:active {
-      background: #be0a25;
+      background: rgba(188, 9, 36, 0.87);
     }
     #div, #mult, #perc, #subt, #add, #eq {
       &:active {
@@ -129,7 +129,7 @@ button {
 
 #backspace {
   position: relative;
-  background: #ce0c27;
+  background: rgba(206, 12, 41, 0.87);
   &::before{
     content: '';
     position: absolute;
@@ -163,7 +163,7 @@ button {
 
 #clear {
   color:white;
-  background: #ea8822;
+  background: rgba(234, 136, 34, 0.87);
   font-family: 'RobotoMedium';
 }
 
