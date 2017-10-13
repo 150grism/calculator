@@ -13,7 +13,7 @@ body {
   #calculator {
     margin: 0 5%;
     width: 90%;
-    height: 100vh;
+    height: 100.05vh;
   }
 }
 
@@ -52,8 +52,20 @@ body {
 #calculator .row {
   position: relative;
   display: flex;
-  padding-bottom: 3%;
   justify-content: space-between;
+}
+
+@media (min-width: 1px) {
+  #calculator .row {
+    padding-top: 3%;
+  }
+}
+
+@media (min-width: 481px) {
+  #calculator .row {
+    padding-top: 0;
+    padding-bottom: 3%;
+  }
 }
 
 #calculator .row button:hover {
@@ -597,38 +609,38 @@ button img {
 
 @media (min-width: 1px) {
   #display {
-    height: calc(93vh - (62.5px * 5));
+    height: calc(90vh - (62.5px * 5));
   }
 }
 
 @media (min-width: 330px) {
   #display {
-    height: calc(93vh - (65px * 5));
+    height: calc(90vh - (65px * 5));
   }
 }
 
 @media (min-width: 360px) {
   #display {
     height: 69px;
-    height: calc(93vh - (69px * 5));
+    height: calc(90vh - (69px * 5));
   }
 }
 
 @media (min-width: 390px) {
   #display {
-    height: calc(93vh - (73px * 5));
+    height: calc(90vh - (73px * 5));
   }
 }
 
 @media (min-width: 420px) {
   #display {
-    height: calc(93vh - (79px * 5));
+    height: calc(90vh - (79px * 5));
   }
 }
 
 @media (min-width: 450px) {
   #display {
-    height: calc(93vh - (82px * 5));
+    height: calc(90vh - (82px * 5));
   }
 }
 
@@ -666,7 +678,7 @@ button img {
 
 @media (min-width: 1px) {
   #border {
-    left: -10px;
+    left: -5vw;
     width: 100vw;
     height: 11%;
   }

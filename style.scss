@@ -10,7 +10,7 @@ body {
   @media (min-width: 1px) {
     margin: 0 5%;
     width: 90%; 
-    height: 100vh;
+    height: 100.05vh;
   }
   @media (min-width: 481px) {
     width: 300px;
@@ -38,7 +38,14 @@ body {
     position: relative;
     display: flex;
     // justify-content: space-between;
-    padding-bottom: 3%;
+    // padding-top: 3%;
+    @media (min-width: 1px) {
+      padding-top: 3%;
+    }
+    @media (min-width: 481px) {
+      padding-top: 0;
+      padding-bottom: 3%;
+    }
     justify-content: space-between;
     & button {
       &:hover {
@@ -456,27 +463,27 @@ button {
   display: flex;
   flex-direction: column;
   @media (min-width: 1px) {
-    height: calc(93vh - (62.5px * 5));
+    height: calc(90vh - (62.5px * 5));
   }
   @media (min-width: 330px) {
     // height: 65px;
-    height: calc(93vh - (65px * 5));
+    height: calc(90vh - (65px * 5));
   }
   @media (min-width: 360px) {
     height: 69px;
-    height: calc(93vh - (69px * 5));
+    height: calc(90vh - (69px * 5));
   }
   @media (min-width: 390px) {
     // height: 73px;
-    height: calc(93vh - (73px * 5));
+    height: calc(90vh - (73px * 5));
   }
   @media (min-width: 420px) {
     // height: 79px;
-    height: calc(93vh - (79px * 5));
+    height: calc(90vh - (79px * 5));
   }
   @media (min-width: 450px) {
     // height: 82px;
-    height: calc(93vh - (82px * 5));
+    height: calc(90vh - (82px * 5));
   }
   @media (min-width: 481px) {
     height: 168.75px;
@@ -503,7 +510,7 @@ button {
 #border {
   position: absolute;
   @media (min-width: 1px) {
-    left: -10px;
+    left: -5vw;
     width: 100vw;
     height: 11%;
   }
