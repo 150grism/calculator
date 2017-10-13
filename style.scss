@@ -1,4 +1,5 @@
-$elementGray: rgba(0, 0, 0, 0.7);
+// $elementGray: rgba(0, 0, 0, 0.7);
+$elementGray: rgb(92, 92, 92);
 $buttonBorderGray: rgba(0, 0, 0, 0.38);
 
 body {
@@ -258,7 +259,7 @@ button {
   color: $elementGray;
   transform: rotate(-45deg);
   &::before, &::after {
-    font-size:2.5em;
+    font-size: 56px;
     font-weight: 900;
     position: absolute;
     margin-top: -1px;
@@ -272,18 +273,18 @@ button {
       top: 5%;
     }
     @media (min-width: 360px) {
-      top: 7%;
+      top: 2%;
+      font-size: 72px;
     }
     @media (min-width: 390px) {
       top: 5%;
-      font-size: 3em;
     }
     @media (min-width: 420px) {
-      top: 8%;
+      top: 6.5%;
     }
     @media (min-width: 481px) {
       top: 5%;
-      font-size:2.5em;
+      font-size: 56px;
     }
   }
   &::after {
@@ -298,21 +299,21 @@ button {
       top: 35%;
     }
     @media (min-width: 360px) {
-      top: 36%;
+      top: 29%;
+      font-size: 72px;
     }
     @media (min-width: 390px) {
-      top: 33%;
-      font-size: 3em;
+      top: 31%;
     }
     @media (min-width: 420px) {
-      top: 36%;
+      top: 33.5%;
     }
     @media (min-width: 460px) {
-      top: 36%;
+      top: 35%;
     }
     @media (min-width: 481px) {
       top: 32%;
-      font-size:2.5em;
+      font-size: 56px;
     }
   }
   & span {
