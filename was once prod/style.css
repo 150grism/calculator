@@ -396,7 +396,7 @@ button img {
 
 #eq {
   position: relative;
-  background: #575757;
+  background: rgba(80, 80, 80, 0.7);
 }
 
 #eq::before, #eq::after {
