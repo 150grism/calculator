@@ -20,7 +20,7 @@ body {
 @media (min-width: 481px) {
   #calculator {
     width: 300px;
-    margin: 112.5px auto 0;
+    margin: 100px auto 0;
   }
 }
 
@@ -81,11 +81,11 @@ body {
 }
 
 #calculator .row #clear:active {
-  background: #db7e20;
+  background: rgba(218, 125, 32, 0.87);
 }
 
 #calculator .row #backspace:active {
-  background: #be0a25;
+  background: rgba(188, 9, 36, 0.87);
 }
 
 #calculator .row #div:active, #calculator .row #mult:active, #calculator .row #perc:active, #calculator .row #subt:active, #calculator .row #add:active, #calculator .row #eq:active {
@@ -93,8 +93,12 @@ body {
 }
 
 #calculator .row button:disabled {
-  background: rgba(0, 0, 0, 0.12);
-  border: 0.8px solid rgba(105, 105, 105, 0.5);
+  background: rgba(0, 0, 0, 0.06);
+  border: 0.8px solid rgba(222, 222, 222, 0.38);
+}
+
+#calculator .row button:disabled:hover {
+  cursor: auto;
 }
 
 #calculator .row button:disabled:active {
@@ -104,11 +108,12 @@ body {
 .numbers {
   background: white;
   font: 33px 'RobotoLight';
+  color: #5c5c5c;
 }
 
 button {
   display: inline-block;
-  border: 0.8px solid rgba(105, 105, 105, 0.86);
+  border: 0.8px solid rgba(0, 0, 0, 0.38);
   border-radius: 50%;
   font: inherit;
 }
@@ -168,7 +173,7 @@ button img {
 
 #backspace {
   position: relative;
-  background: #ce0c27;
+  background: rgba(206, 12, 41, 0.87);
 }
 
 #backspace::before {
@@ -203,7 +208,7 @@ button img {
 
 #clear {
   color: white;
-  background: #ea8822;
+  background: rgba(234, 136, 34, 0.87);
   font-family: 'RobotoMedium';
 }
 
@@ -218,8 +223,8 @@ button img {
   width: 33.333%;
   top: 50%;
   left: 33.333%;
-  margin-top: -1.25px;
-  background: #000;
+  margin-top: -1px;
+  background: #5c5c5c;
 }
 
 #mult::before {
@@ -232,6 +237,7 @@ button img {
 
 #div {
   position: relative;
+  color: #5c5c5c;
 }
 
 #div::before, #div::after {
@@ -331,123 +337,27 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #perc {
   position: relative;
-  transform: rotate(-45deg);
-}
-
-#perc::before, #perc::after {
-  font-size: 2.5em;
-  font-weight: 900;
-  position: absolute;
-  margin-top: -1px;
-  height: 2px;
-  width: 33.333%;
-  left: 33.333%;
+  color: #5c5c5c;
 }
 
 #perc::before {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::before {
-    top: 5%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::before {
-    top: 7%;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::before {
-    top: 5%;
-    font-size: 3em;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::before {
-    top: 8%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::before {
-    top: 5%;
-    font-size: 2.5em;
-  }
-}
-
-#perc::after {
-  content: '\0005AF';
-}
-
-@media (min-width: 1px) {
-  #perc::after {
-    top: 31%;
-  }
-}
-
-@media (min-width: 320px) {
-  #perc::after {
-    top: 33%;
-  }
-}
-
-@media (min-width: 340px) {
-  #perc::after {
-    top: 35%;
-  }
-}
-
-@media (min-width: 360px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 390px) {
-  #perc::after {
-    top: 33%;
-    font-size: 3em;
-  }
-}
-
-@media (min-width: 420px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 460px) {
-  #perc::after {
-    top: 36%;
-  }
-}
-
-@media (min-width: 481px) {
-  #perc::after {
-    top: 32%;
-    font-size: 2.5em;
-  }
-}
-
-#perc span::before {
   content: '';
   position: absolute;
-  height: 2px;
-  width: 40%;
-  top: 50%;
-  left: 30%;
+  height: 81%;
+  width: 81%;
+  top: 11%;
+  left: 9.5%;
   margin-top: -1px;
-  background: #000;
+  opacity: 0;
+}
+
+#perc img {
+  width: 50%;
 }
 
 #subt {
@@ -462,7 +372,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #add {
@@ -477,7 +387,7 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
 }
 
 #add::after {
@@ -486,6 +396,7 @@ button img {
 
 #eq {
   position: relative;
+  background: #575757;
 }
 
 #eq::before, #eq::after {
@@ -496,7 +407,8 @@ button img {
   top: 50%;
   left: 33.333%;
   margin-top: -1px;
-  background: #000;
+  background: #5c5c5c;
+  background: white;
 }
 
 #eq::before {
@@ -507,7 +419,7 @@ button img {
   top: 57%;
 }
 
-#top-nav-bar {
+#status-bar {
   position: absolute;
   left: -4%;
   height: 23.75px;
@@ -516,46 +428,46 @@ button img {
 }
 
 @media (min-width: 1px) {
-  #top-nav-bar {
+  #status-bar {
     display: none;
   }
 }
 
 @media (min-width: 481px) {
-  #top-nav-bar {
+  #status-bar {
     display: initial;
   }
 }
 
-#top-nav-bar img {
+#status-bar img {
   float: right;
   height: 60%;
   margin: 1.9% 0 0 1%;
 }
 
-#top-nav-bar #alarm {
+#status-bar #alarm {
   margin-top: 1.5%;
   height: 70%;
   margin-right: 0.5%;
 }
 
-#top-nav-bar p {
+#status-bar p {
   font-size: 0.7em;
   font-weight: 500;
   float: right;
   margin: 1.5% 0 0 1%;
 }
 
-#top-nav-bar #time {
+#status-bar #time {
   margin-right: 1%;
 }
 
-#top-nav-bar #signal {
+#status-bar #signal {
   height: 60%;
   margin-top: 2%;
 }
 
-#top-nav-bar #fg {
+#status-bar #fg {
   position: absolute;
   font-size: 0.346em;
   margin: 0;
@@ -564,11 +476,11 @@ button img {
   animation-iteration-count: infinite;
 }
 
-#top-nav-bar #signal {
+#status-bar #signal {
   animation: one 10s infinite;
 }
 
-#top-nav-bar #signal2 {
+#status-bar #signal2 {
   position: absolute;
   left: 67.4%;
   top: 2%;
@@ -676,7 +588,19 @@ button img {
 }
 
 #heading h7 {
-  font-size: 22px;
+  font-weight: 900;
+}
+
+@media (min-width: 1px) {
+  #heading h7 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 481px) {
+  #heading h7 {
+    font-size: 15px;
+  }
 }
 
 #border {
@@ -704,8 +628,6 @@ button img {
 #alert {
   z-index: 2;
   position: absolute;
-  top: 85%;
-  height: 44px;
   margin: 15px;
   width: 90%;
   background: rgba(0, 0, 0, 0.9);
@@ -714,6 +636,20 @@ button img {
   color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
   display: none;
+}
+
+@media (min-width: 1px) {
+  #alert {
+    top: 0.5vh;
+    height: 48px;
+  }
+}
+
+@media (min-width: 481px) {
+  #alert {
+    top: -7px;
+    height: 44px;
+  }
 }
  
 
