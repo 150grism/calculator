@@ -9,7 +9,7 @@ var time = document.getElementById('time');
 var text = '';
 var fSize = 0;
 var dot = false;
-var cv, qw;
+var cv, qw, op;
 var d = new Date();
 var timer;
 
@@ -27,15 +27,15 @@ commaEvery3 = (string, cv, qwLast, checkIfInitialComma = false) => {
   if (qwLast < 3) {return string;}
   for (qw = qwLast; qw > cv; qw--) {
     // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
-    console.log(qw);
+    // console.log(qw);
     zx++;
     zx = zx % 3;
     if (zx === 0) {
-      console.log('zx ' + qw + ' ' + cv);
+      // console.log('zx ' + qw + ' ' + cv);
       if (checkIfInitialComma === true) {
-        console.log('checkIfInitialComma');
+        // console.log('checkIfInitialComma');
         if (['+', '-', '\u00D7', '\u00F7', '%'].indexOf(string.charAt(qw - 1)) < 0) {
-          console.log('return');
+          // console.log('return');
           string = string.slice(0, qw) + "," + string.slice(qw);
           // console.log('-> ' + text);
         } else {
@@ -66,7 +66,7 @@ document.onclick = function () {
     theButton = event.target;
     val = event.target.value;
     //при превышении 35 символов, вывести предупреждение (исчезнет по таймеру) и удалить последний введенный символ
-    if (text.replace(/,/g,'').length > 35) {
+    if (val !== 'backspace' && text.replace(/,/g,'').length > 35) {
       upToAlert.style.display = 'block';
       endAndStartTimer();
       // setTimeout(function() {upToAlert.style.display = 'none';}, 3000);
@@ -91,6 +91,12 @@ document.onclick = function () {
         }
         text = text.slice(0, -1);
       }
+      //стереть все декоративные запятые из последнего числа и добавить заново
+      if (lastCharacter(1) !== '.') {
+        for (op = text.length - 1; ['+', '-', '\u00D7', '\u00F7', '%', '.'].indexOf(text.charAt(op)) < 0 && op > 0; op--) {}
+        text = text.slice(0, op) + text.slice(op).replace(/,/g, '');
+        text = commaEvery3(text, op, text.length - 1, true);
+      }
     //если кнопка - "AC", стереть результат + стереть весь инпут
     } else if (val === 'clear') {
       text = '';
@@ -100,10 +106,17 @@ document.onclick = function () {
     } else if (['+', '-', '\u00D7', '\u00F7'].indexOf(val) > -1 && ['+', '-', '\u00D7', '\u00F7'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
-    //если кнопка - "точка", и последний символ инпута - %, запрещаем ставить еще точки (dot = true;) и в инпут приписываем "x0."
-    } else if (val === '.' && lastCharacter(1) === '%') {
-      dot = true;
-      text = text + '\u00D7' + '0' + val;
+    //если кнопка - "точка", и ...
+    } else if (val === '.') {
+      //... последний символ инпута - %, запрещаем ставить еще точки (dot = true;) и в инпут приписываем "x0."
+      if (lastCharacter(1) === '%') {
+        dot = true;
+        text = text + '\u00D7' + '0' + val;
+      //... последний символ инпута - одна из операций, запрещаем ставить еще точки (dot = true;) и в инпут приписываем "<операция>0."
+      } else if (['+', '-', '\u00D7', '\u00F7'].indexOf(lastCharacter(1)) > -1) {
+        dot = true;
+        text = text + '0' + val;
+      }
     //умножение, деление и процента первым в инпуте быть не могут - инпут не меняется
     } else if (['\u00D7', '\u00F7', '%'].indexOf(val) > -1 && text.length === 0) {
     //если кнопка - знак процента, и предыдущий символ в инпуте - операция, то заменяем операцию на знак процента
@@ -132,9 +145,9 @@ document.onclick = function () {
         }
         //Добавление запятых каждые 3 цифры
         //находим первую цифру последнего числа в инпуте (cv) и удаляем из этого числа запятые
-        for (cv = text.length - 1; ['+', '-', '\u00D7', '\u00F7', '%', '.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
+        for (cv = text.length - 1; ['+', '-', '\u00D7', '\u00F7', '%', '.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g, '');
-        console.log(text);
+        // console.log(text);
         //через каждые три цифры в последнем числе инпута ставим запятую, если эта цифра в числе не первая
         // var zx = 0;
         // for (qw = text.length - 1; qw > cv; qw--) {
@@ -153,7 +166,7 @@ document.onclick = function () {
         if (qw >= cv) {
           //если точка в последнем числе найдена, запрещаем ставить еще точки и удаляем запятые
           dot = true;
-          console.log(qw + ' --- ' + cv);
+          // console.log(qw + ' --- ' + cv);
           text = text.slice(0, qw) + text.slice(qw).replace(/,/g, '');
         } else {dot = false;}
       //если кнопка - "точка", добавляем её в инпут и запрещаем ставить еще точки
@@ -187,7 +200,8 @@ document.onclick = function () {
       }
     }
     displayInput.innerHTML = text;
-    console.log(text);
+    console.log(text.length + ': ' + text);
+    // console.log('без , :' + text.replace(/,/g, '').length);
 
     //если кнопка - "равно", запускаем функцию вычисления результата
     if (val === '=') {
@@ -206,12 +220,12 @@ document.onclick = function () {
     for (let i = 0; i < text.length; i++) {
       //находим последний символ числа с процентом
       if (text.charAt(i) === '%') {
-        console.log('i:' + i);
+        // console.log('i:' + i);
         let k = 0, j;
         let percentText;
         //находим первый символ числа с процентом
         for (j = i-1; ['+', '-', '*', '/', '%'].indexOf(text[j]) < 0 && j >= 0; j--) {}
-        console.log('j:' + j);
+        // console.log('j:' + j);
         percentText = text.substring(j + 1, i);
         // console.log(percentText);
         // percentText = percentText.slice(0, -1);
@@ -223,10 +237,12 @@ document.onclick = function () {
     //удаляем неиспользуемые знаки операций в конце инпута
     while (['+', '-', '*', '/'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
-      console.log(text);
+      // console.log(text);
     }
     //вычисляем результат
     result = eval(text).toString();
+    //если деление на 0, выдаем ошибку
+    if (result === 'Infinity') {result = 'Error';}
     let i;
     //Добавляем в результат запятые
     //начиная либо с позиции символа "точки", либо с конца ...
@@ -239,17 +255,18 @@ document.onclick = function () {
     } else {
       i = result.length;
     }
-    //... раставляем запятые, если в результате не используется "e"
-    if (result.indexOf('e') < 1) {
-      var zx = 0;
-      for (qw = i - 1; qw > 0; qw--) {
-        zx++;
-        zx = zx % 3;
-        if (zx === 0) {
-          result = result.slice(0, qw) + "," + result.slice(qw);
-          console.log('-> ' + result);
-        }
-      }
+    //... раставляем запятые, если в отображении результата не используется "e"
+    if (result.indexOf('e') < 1 && result !== 'Error') {
+      result = commaEvery3(result, 0, i - 1, false);
+      // var zx = 0;
+      // for (qw = i - 1; qw > 0; qw--) {
+      //   zx++;
+      //   zx = zx % 3;
+      //   if (zx === 0) {
+      //     result = result.slice(0, qw) + "," + result.slice(qw);
+      //     // console.log('-> ' + result);
+      //   }
+      // }
     }
     //удалем запятую в самом начале числа, если число отрицательное
     if (result.charAt(0) === '-' && result.charAt(1) === ',') {
