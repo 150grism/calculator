@@ -3,7 +3,7 @@ var displayInput = document.getElementById('display-input');
 var displayResult = document.getElementById('display-result');
 var upToAlert = document.getElementById('alert');
 var time = document.getElementById('time');
-// console.log('butt');
+// console.log('buttd');
 
 
 var text = '';
