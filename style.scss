@@ -258,6 +258,16 @@ button {
 #perc {
   position: relative;
   color: $elementGray;
+  &::before {
+    content: '';
+    position: absolute;
+    height: 81%;
+    width: 81%;
+    top: 11%;
+    left: 9.5%;
+    margin-top: -1px;
+    opacity: 0;
+  }
   & img {
     width: 50%;
   }

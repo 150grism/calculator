@@ -345,6 +345,17 @@ button img {
   color: #5c5c5c;
 }
 
+#perc::before {
+  content: '';
+  position: absolute;
+  height: 81%;
+  width: 81%;
+  top: 11%;
+  left: 9.5%;
+  margin-top: -1px;
+  opacity: 0;
+}
+
 #perc img {
   width: 50%;
 }
