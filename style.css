@@ -406,7 +406,7 @@ button img {
   top: 57%;
 }
 
-#top-nav-bar {
+#status-bar {
   position: absolute;
   left: -4%;
   height: 23.75px;
@@ -415,46 +415,46 @@ button img {
 }
 
 @media (min-width: 1px) {
-  #top-nav-bar {
+  #status-bar {
     display: none;
   }
 }
 
 @media (min-width: 481px) {
-  #top-nav-bar {
+  #status-bar {
     display: initial;
   }
 }
 
-#top-nav-bar img {
+#status-bar img {
   float: right;
   height: 60%;
   margin: 1.9% 0 0 1%;
 }
 
-#top-nav-bar #alarm {
+#status-bar #alarm {
   margin-top: 1.5%;
   height: 70%;
   margin-right: 0.5%;
 }
 
-#top-nav-bar p {
+#status-bar p {
   font-size: 0.7em;
   font-weight: 500;
   float: right;
   margin: 1.5% 0 0 1%;
 }
 
-#top-nav-bar #time {
+#status-bar #time {
   margin-right: 1%;
 }
 
-#top-nav-bar #signal {
+#status-bar #signal {
   height: 60%;
   margin-top: 2%;
 }
 
-#top-nav-bar #fg {
+#status-bar #fg {
   position: absolute;
   font-size: 0.346em;
   margin: 0;
@@ -463,11 +463,11 @@ button img {
   animation-iteration-count: infinite;
 }
 
-#top-nav-bar #signal {
+#status-bar #signal {
   animation: one 10s infinite;
 }
 
-#top-nav-bar #signal2 {
+#status-bar #signal2 {
   position: absolute;
   left: 67.4%;
   top: 2%;
