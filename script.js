@@ -22,6 +22,7 @@ endAndStartTimer = () => {
   timer = window.setTimeout(function() {upToAlert.style.display = 'none';}, 3000); 
 }
 
+//добавление запятых каждые 3 символа, начиная с конца инпута
 commaEvery3 = (string, cv, qwLast, checkIfInitialComma = false) => {
   var zx = 0;
   if (qwLast < 3) {return string;}
@@ -32,6 +33,7 @@ commaEvery3 = (string, cv, qwLast, checkIfInitialComma = false) => {
     zx = zx % 3;
     if (zx === 0) {
       // console.log('zx ' + qw + ' ' + cv);
+      //если число, в котором будет добавлять запятые, не первое в инпуте, то запрещаем ставить запятую в начале числа
       if (checkIfInitialComma === true) {
         // console.log('checkIfInitialComma');
         if (['+', '-', '\u00D7', '\u00F7', '%'].indexOf(string.charAt(qw - 1)) < 0) {

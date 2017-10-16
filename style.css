@@ -396,6 +396,7 @@ button img {
 
 #eq {
   position: relative;
+  background: #575757;
 }
 
 #eq::before, #eq::after {
@@ -407,6 +408,7 @@ button img {
   left: 33.333%;
   margin-top: -1px;
   background: #5c5c5c;
+  background: white;
 }
 
 #eq::before {

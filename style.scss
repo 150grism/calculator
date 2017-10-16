@@ -1,5 +1,6 @@
 // $elementGray: rgba(0, 0, 0, 0.7);
 $elementGray: #5c5c5c;
+$eqDarkGray: #575757;
 $buttonBorderGray: rgba(0, 0, 0, 0.38);
 
 @mixin basicBefore {
@@ -363,8 +364,10 @@ button {
 
 #eq {
   position: relative;
+  background: $eqDarkGray;
   &::before, &::after {
     @include basicBefore;
+    background: white;
   }
   &::before {
     top: 43%;
