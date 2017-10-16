@@ -3,22 +3,50 @@ var displayInput = document.getElementById('display-input');
 var displayResult = document.getElementById('display-result');
 var upToAlert = document.getElementById('alert');
 var time = document.getElementById('time');
-// console.log('buttd');
+// console.log('butt');
 
 
 var text = '';
 var fSize = 0;
 var dot = false;
-var lastCharacter = (index) => text.charAt(text.length - index);
 var cv, qw;
 var d = new Date();
 var timer;
 
+lastCharacter = (index) => text.charAt(text.length - index);
+
 //таймер для предупреждения о превышении допустимого количества символов
-function endAndStartTimer() {
+endAndStartTimer = () => {
   window.clearTimeout(timer);
   //var millisecBeforeRedirect = 10000; 
   timer = window.setTimeout(function() {upToAlert.style.display = 'none';}, 3000); 
+}
+
+commaEvery3 = (string, cv, qwLast, checkIfInitialComma = false) => {
+  var zx = 0;
+  if (qwLast < 3) {return string;}
+  for (qw = qwLast; qw > cv; qw--) {
+    // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
+    console.log(qw);
+    zx++;
+    zx = zx % 3;
+    if (zx === 0) {
+      console.log('zx ' + qw + ' ' + cv);
+      if (checkIfInitialComma === true) {
+        console.log('checkIfInitialComma');
+        if (['+', '-', '\u00D7', '\u00F7', '%'].indexOf(string.charAt(qw - 1)) < 0) {
+          console.log('return');
+          string = string.slice(0, qw) + "," + string.slice(qw);
+          // console.log('-> ' + text);
+        } else {
+          string = string;
+        }
+      } else {
+        string = string.slice(0, qw) + "," + string.slice(qw);
+      }
+    }
+  }
+  return string;
 }
 
 //время в строке состояния
@@ -31,7 +59,7 @@ if (minutes < 10) {
 } 
 time.innerHTML = hours + ':' + minutes;
 
-//функционал кнопок
+//функционал кнопок:
 document.onclick = function () {
 
   if (event.target.tagName == 'BUTTON') {
@@ -67,62 +95,68 @@ document.onclick = function () {
     } else if (val === 'clear') {
       text = '';
       displayResult.innerHTML = '';
-    //если кнопка выполняет одну из операций (сложение, вычитание, деление, умножение), в то время как 
+    //если кнопка выполняет одну из операций (сложение, вычитание, деление, умножение), и 
     //последний символ в инпуте = одна из этих операций, заменить этот последний символ новой операцией
     } else if (['+', '-', '\u00D7', '\u00F7'].indexOf(val) > -1 && ['+', '-', '\u00D7', '\u00F7'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       text += val;
-    //если кнопка - "точка", и последний символ инпута - %, 
+    //если кнопка - "точка", и последний символ инпута - %, запрещаем ставить еще точки (dot = true;) и в инпут приписываем "x0."
     } else if (val === '.' && lastCharacter(1) === '%') {
-      // ... начиная с конца, ищем позицию последнего символа, который является операцией. Это будет, фактически, конец предпоследнего числа в инпуте
-      for (cv = text.length - 1; ['+', '-', '\u00D7', '\u00F7', '%', '.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
-      // ... находим позицию последней точки в инпуте. 
-      qw = text.lastIndexOf('.');
-      // ... если точка в инпуте позже предпоследнего числа в инпуте, значит точка находится где-то в последнем числе.
-      //тогда 
-      // if ((qw >= cv && dot === false) || qw === -1) {
-        //dot = true - значит, что точка в числе уже есть - значит новую точку в число ставить запрещено
-        dot = true;
-        text = text + '\u00D7' + '0' + val;
-      // }
+      dot = true;
+      text = text + '\u00D7' + '0' + val;
+    //умножение, деление и процента первым в инпуте быть не могут - инпут не меняется
     } else if (['\u00D7', '\u00F7', '%'].indexOf(val) > -1 && text.length === 0) {
+    //если кнопка - знак процента, и предыдущий символ в инпуте - операция, то заменяем операцию на знак процента
     } else if (val === '%' && ['+', '-', '\u00D7', '\u00F7'].indexOf(lastCharacter(1)) > -1) {
       if (lastCharacter(2) !== '%') {
         text = text.slice(0, -1);
         text += val;
       } else {
+        //если перед операцией уже стоит знак процента, то просто удаляем знак операции (чтобы знак процента не задваивался)
         text = text.slice(0, -1);
       }
-    } else if (['+', '-', '\u00D7', '\u00F7', '%'].indexOf(lastCharacter(1)) > -1 && val === lastCharacter(1)) {
+    //несколько знаков процента подряд быть не может
+    } else if (val === '%' && val === lastCharacter(1)) {
+    //в любом другом случае, если кнопка - ни "равно", ни точка и не цифра - просто приписываем значение кнопки
     } else if (val !== '=' && val !== '.' && theButton.className !== 'numbers') {
       text += val;
     }
+    //если кнопка - цифра:
     if (theButton.className == 'numbers') {
       if (val !== '.') {
         if (lastCharacter(1) === '%') {
+          //"\u00D7" - умножение
           text = text + '\u00D7' + val;
         } else {
           text += val;
         }
+        //Добавление запятых каждые 3 цифры
+        //находим первую цифру последнего числа в инпуте (cv) и удаляем из этого числа запятые
         for (cv = text.length - 1; ['+', '-', '\u00D7', '\u00F7', '%', '.'].indexOf(text.charAt(cv)) < 0 && cv > 0; cv--) {console.log(cv);}
         text = text.slice(0, cv) + text.slice(cv).replace(/,/g, '');
         console.log(text);
-        var zx = 0;
-        for (qw = text.length - 1; qw > cv; qw--) {
-          // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
-          zx++;
-          zx = zx % 3;
-          if (zx === 0 && ['+', '-', '\u00D7', '\u00F7', '%'].indexOf(text.charAt(qw - 1)) < 0) {
-            text = text.slice(0, qw) + "," + text.slice(qw);
-            // console.log('-> ' + text);
-          }
-        }
+        //через каждые три цифры в последнем числе инпута ставим запятую, если эта цифра в числе не первая
+        // var zx = 0;
+        // for (qw = text.length - 1; qw > cv; qw--) {
+        //   // console.log(qw + ' ' + text.charAt(qw) + ' ' + zx);
+        //   zx++;
+        //   zx = zx % 3;
+        //   if (zx === 0 && ['+', '-', '\u00D7', '\u00F7', '%'].indexOf(text.charAt(qw - 1)) < 0) {
+        //     text = text.slice(0, qw) + "," + text.slice(qw);
+        //     // console.log('-> ' + text);
+        //   }
+        // }
+        text = commaEvery3(text, cv, text.length - 1, true);
+        // console.log(commaEvery3(text, cv, text.length - 1, true));
+        //Удяление запятых после "точки"
         qw = text.lastIndexOf('.');
         if (qw >= cv) {
+          //если точка в последнем числе найдена, запрещаем ставить еще точки и удаляем запятые
           dot = true;
           console.log(qw + ' --- ' + cv);
           text = text.slice(0, qw) + text.slice(qw).replace(/,/g, '');
         } else {dot = false;}
+      //если кнопка - "точка", добавляем её в инпут и запрещаем ставить еще точки
       } else {
         if (dot === false) {
           text += val;
@@ -130,6 +164,7 @@ document.onclick = function () {
         }
       }
     }
+    //Изменяем размер текста на дисплее в зависимости от количества символов
     if (text.length < 17) {
       if (fSize != 1) {
         displayInput.style.fontSize = 31;
@@ -154,47 +189,58 @@ document.onclick = function () {
     displayInput.innerHTML = text;
     console.log(text);
 
+    //если кнопка - "равно", запускаем функцию вычисления результата
     if (val === '=') {
-      SchitaiBatika();
+      Calculate();
     }
     // console.log(openParenthesesCount);
   }
 
-  SchitaiBatika = () => {
+  Calculate = () => {
     text = text.replace(/,/g, '');
     text = text.replace(/\u00F7/g, '/');
     text = text.replace(/\u00D7/g, '*');
     // console.clear();
     // console.log(eval(text));
+    //Вычисление процентных значений
     for (let i = 0; i < text.length; i++) {
-      if ( text.charAt(i) === '%') {
+      //находим последний символ числа с процентом
+      if (text.charAt(i) === '%') {
         console.log('i:' + i);
         let k = 0, j;
         let percentText;
-        for (j = i-1; ['+', '-', '*', '/', '%'].indexOf(text[j]) < 0 && j >= 0; j--) { 
-          k++;
-        }
+        //находим первый символ числа с процентом
+        for (j = i-1; ['+', '-', '*', '/', '%'].indexOf(text[j]) < 0 && j >= 0; j--) {}
         console.log('j:' + j);
-        console.log('k:' + k);
-        percentText = text.substring(i - k, i + 1);
-        console.log(percentText);
-        percentText = percentText.slice(0, -1);
+        percentText = text.substring(j + 1, i);
+        // console.log(percentText);
+        // percentText = percentText.slice(0, -1);
         console.log(percentText);
         text = text.replace(percentText + '%',parseFloat(percentText) / 100);
         console.log(text);
       }
     }
+    //удаляем неиспользуемые знаки операций в конце инпута
     while (['+', '-', '*', '/'].indexOf(lastCharacter(1)) > -1) {
       text = text.slice(0, -1);
       console.log(text);
     }
+    //вычисляем результат
     result = eval(text).toString();
     let i;
+    //Добавляем в результат запятые
+    //начиная либо с позиции символа "точки", либо с конца ...
     if (result.indexOf('.') > 0) {
-      for (i = result.length - 1; result.charAt(i) !== '.'; i--) {}
+      i = result.lastIndexOf('.');
+      //сокращаем результат то 10 знаков после запятой (чтобы горизонтальный скроллбар не появлялся в некоторых случаях)
+      if (result.lastIndexOf('e') < 1) {
+        result = result.substr(0, i + 10);
+      };
     } else {
       i = result.length;
     }
+    //... раставляем запятые, если в результате не используется "e"
+    if (result.indexOf('e') < 1) {
       var zx = 0;
       for (qw = i - 1; qw > 0; qw--) {
         zx++;
@@ -204,16 +250,23 @@ document.onclick = function () {
           console.log('-> ' + result);
         }
       }
+    }
+    //удалем запятую в самом начале числа, если число отрицательное
+    if (result.charAt(0) === '-' && result.charAt(1) === ',') {
+      result = result.slice(0, 1) + result.slice(2, result.length);
+    }
+    //выводим результат на дисплей
     result = '=' + result; 
-    if (fSize = 1) {
-      result = result.slice(0, 16);
-    }
-    if (fSize = 2) {
-      result = result.slice(0, 17);
-    }
-    if (fSize = 3) {
-      result = result.slice(0, 20);
-    }
+    //ограничение длины результата в зависимости от размера шрифта в инпуте
+    // if (fSize === 1) {
+    //   result = result.slice(0, 16);
+    // }
+    // if (fSize === 2) {
+    //   result = result.slice(0, 17);
+    // }
+    // if (fSize === 3) {
+    //   result = result.slice(0, 20);
+    // }
     displayResult.innerHTML = result;  
   }
 }
