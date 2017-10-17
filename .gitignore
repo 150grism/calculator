@@ -1,6 +1,6 @@
 
-css/.sass-cache/
-css/*.css.map
+.sass-cache/
+*.css.map
 
 .vscode/
 *.vscode/settings.json
